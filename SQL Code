@@ -1,20 +1,22 @@
 
 
--- Select all columns from the database
--- Display only the first ten rows
+-- this will select all the columns from the databse and show only the first ten rows
 
 SELECT *
 FROM schools
 LIMIT 10;
 
 
--- Count rows with percent_tested missing and total number of schools
+-- this will count the rows with percent_tested missing and total number of schools
+
 
 SELECT COUNT(*) - COUNT(percent_tested) as num_tested_missing, COUNT(*) as num_schools
 FROM schools
 
 
--- Count the number of unique building_code values
+-- this will count the number of unique building_code values
+
+
 SELECT COUNT(DISTINCT building_code) as num_school_buildings
 FROM schools;
 
@@ -30,7 +32,7 @@ WHERE average_math >= 640
 ORDER BY average_math DESC;
 
 
--- Find lowest average_reading
+-- this will find the lowest average_reading
 
 SELECT MIN(average_reading) as lowest_reading
 FROM schools;
