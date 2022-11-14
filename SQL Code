@@ -21,9 +21,7 @@ SELECT COUNT(DISTINCT building_code) as num_school_buildings
 FROM schools;
 
 
--- Select school and average_math
--- Filter for average_math 640 or higher
--- Display from largest to smallest average_math
+-- This will filter the database for all schools with math scores of atleast 640
 
 
 SELECT school_name, average_math
@@ -38,10 +36,7 @@ SELECT MIN(average_reading) as lowest_reading
 FROM schools;
 
 
--- Find the top score for average_writing
--- Group the results by school
--- Sort by max_writing in descending order
--- Reduce output to one school
+-- This will show us the top performing school measured by average writing scores
 
 
 SELECT school_name, MAX(average_writing) as max_writing
@@ -51,10 +46,7 @@ ORDER BY max_writing DESC
 LIMIT 1;
 
 
--- Calculate average_sat
--- Group by school_name
--- Sort by average_sat in descending order
--- Display the top ten results
+-- This will create the total SAT scores and find the top 10 best schools
 
 
 SELECT school_name, SUM(average_math + average_reading + average_writing) as average_sat
@@ -64,10 +56,7 @@ ORDER BY average_sat DESC
 LIMIT 10;
 
 
--- Select borough and a count of all schools, aliased as num_schools
--- Calculate the sum of average_math, average_reading, and average_writing, divided by a count of all schools, aliased as average_borough_sat
--- Organize results by borough
--- Display by average_borough_sat in descending order
+-- This will show how NYC SAT performance varies by borough
 
 
 SELECT borough, COUNT(*) as num_schools, SUM(average_math + average_reading + average_writing) / COUNT(*) as average_borough_sat
@@ -76,10 +65,7 @@ GROUP BY borough
 ORDER BY average_borough_sat DESC;
 
 
--- Select school and average_math
--- Filter for schools in Brooklyn
--- Aggregate on school_name
--- Display results from highest average_math and restrict output to five rows
+-- This will show the top best five schools in Brooklyn by Math score
 
 
 SELECT school_name, average_math
